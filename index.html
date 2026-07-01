@@ -92,151 +92,176 @@
         </div>
     </header>
 
-    <section id="home" class="hero-bg min-h-[calc(100vh-70px)] flex items-center text-white py-12">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center w-full">
+<section id="home" class="relative min-h-[calc(100vh-70px)] flex items-center text-white py-12 overflow-hidden">
+        <div id="slider-container" class="absolute inset-0 w-full h-full z-0">
+            <div class="slide absolute inset-0 w-full h-full opacity-100 transition-opacity duration-700 ease-in-out bg-cover bg-center" 
+                 style="background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('hero-bg.png');"></div>
+            <div class="slide absolute inset-0 w-full h-full opacity-0 transition-opacity duration-700 ease-in-out bg-cover bg-center" 
+                 style="background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('hero-bg2.png');"></div>
+            <div class="slide absolute inset-0 w-full h-full opacity-0 transition-opacity duration-700 ease-in-out bg-cover bg-center" 
+                 style="background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('hero-bg3.png');"></div>
+        </div>
+
+        <button onclick="prevSlide()" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center text-zinc-400 hover:text-white text-2xl sm:text-4xl transition-colors active:scale-90" aria-label="Предыдущий слайд">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <button onclick="nextSlide()" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center text-zinc-400 hover:text-white text-2xl sm:text-4xl transition-colors active:scale-90" aria-label="Следующий слайд">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center w-full relative z-10 pointer-events-none">
             <h1 class="text-5xl sm:text-7xl md:text-8xl font-bold logo-font leading-none mb-4 sm:mb-6 tracking-tighter">АКВАТОРИ</h1>
             <p class="text-xl sm:text-2xl md:text-3xl font-light mb-8 sm:mb-12 text-zinc-300">Термальный SPA-комплекс</p>
             
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto pointer-events-auto">
                 <a href="#tariffs" class="w-full sm:w-auto bg-white text-zinc-900 hover:bg-zinc-100 px-8 py-4 rounded-xl sm:rounded-2xl text-lg font-semibold transition-all duration-200 active:scale-95 shadow-lg text-center">Тарифы</a>
                 <a href="#calculator" class="w-full sm:w-auto border border-white hover:bg-white/10 px-8 py-4 rounded-xl sm:rounded-2xl text-lg font-semibold transition-all duration-200 active:scale-95 text-center">Рассчитать стоимость</a>
             </div>
         </div>
     </section>
 
-    <section id="tariffs" class="py-16 sm:py-24 bg-zinc-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center logo-font mb-12">Тарифы на посещение</h2>
+<section id="tariffs" class="py-16 sm:py-24 bg-zinc-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center logo-font mb-12">Тарифы на посещение</h2>
 
-            <div class="space-y-16 sm:space-y-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+            
+            <div class="bg-zinc-850/60 p-5 sm:p-6 rounded-3xl border border-zinc-800/80 flex flex-col justify-between">
                 <div>
-                    <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-10 flex flex-wrap items-center gap-2 sm:gap-4 justify-center text-center text-emerald-400">
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 flex items-center gap-2 text-emerald-400 justify-center sm:justify-start">
                         <span>☀️</span> БУДНИ до 16:00 (2 часа)
                     </h3>
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                        <div class="bg-zinc-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-transparent hover:border-zinc-700 transition-all duration-300">
-                            <h4 class="text-lg font-semibold mb-2 sm:mb-4 text-zinc-300">Взрослый</h4>
-                            <p class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">1 500 ₽</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                        <div class="bg-zinc-800/80 rounded-2xl p-4 border border-zinc-700/30 text-center sm:text-left">
+                            <h4 class="text-[10px] text-zinc-400 uppercase tracking-wider mb-0.5">Взрослый</h4>
+                            <p class="text-xl sm:text-2xl font-bold text-white">1 500 ₽</p>
                         </div>
-                        <div class="bg-zinc-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-transparent hover:border-zinc-700 transition-all duration-300">
-                            <h4 class="text-lg font-semibold mb-2 sm:mb-4 text-zinc-300">Детский (3-14 лет)</h4>
-                            <p class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">900 ₽</p>
-                        </div>
-                        <div class="bg-emerald-900/40 sm:grid-cols-2 lg:col-span-1 sm:col-span-2 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-emerald-700/50 shadow-md">
-                            <h4 class="text-lg font-semibold mb-2 sm:mb-4 text-emerald-200">Дети до 3 лет</h4>
-                            <p class="text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-400">БЕСПЛАТНО</p>
+                        <div class="bg-zinc-800/80 rounded-2xl p-4 border border-zinc-700/30 text-center sm:text-left">
+                            <h4 class="text-[10px] text-zinc-400 uppercase tracking-wider mb-0.5">Детский (3-14)</h4>
+                            <p class="text-xl sm:text-2xl font-bold text-white">900 ₽</p>
                         </div>
                     </div>
                 </div>
-
-                <div>
-                    <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-10 flex flex-wrap items-center gap-2 sm:gap-4 justify-center text-center text-amber-400">
-                        <span>🌙</span> БУДНИ после 16:00 (2 часа)
-                    </h3>
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                        <div class="bg-zinc-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-transparent hover:border-zinc-700 transition-all duration-300">
-                            <h4 class="text-lg font-semibold mb-2 sm:mb-4 text-zinc-300">Взрослый</h4>
-                            <p class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">2 000 ₽</p>
-                        </div>
-                        <div class="bg-zinc-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-transparent hover:border-zinc-700 transition-all duration-300">
-                            <h4 class="text-lg font-semibold mb-2 sm:mb-4 text-zinc-300">Детский (3-14 лет)</h4>
-                            <p class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">1 200 ₽</p>
-                        </div>
-                        <div class="bg-emerald-900/40 sm:col-span-2 lg:col-span-1 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-emerald-700/50 shadow-md">
-                            <h4 class="text-lg font-semibold mb-2 sm:mb-4 text-emerald-200">Дети до 3 лет</h4>
-                            <p class="text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-400">БЕСПЛАТНО</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-10 flex flex-wrap items-center gap-2 sm:gap-4 justify-center text-center text-red-400">
-                        <span>🎉</span> ВЫХОДНЫЕ И ПРАЗДНИКИ (2 часа)
-                    </h3>
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                        <div class="bg-zinc-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-transparent hover:border-zinc-700 transition-all duration-300">
-                            <h4 class="text-lg font-semibold mb-2 sm:mb-4 text-zinc-300">Взрослый</h4>
-                            <p class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">2 400 ₽</p>
-                        </div>
-                        <div class="bg-zinc-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-transparent hover:border-zinc-700 transition-all duration-300">
-                            <h4 class="text-lg font-semibold mb-2 sm:mb-4 text-zinc-300">Детский (3-14 лет)</h4>
-                            <p class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">1 400 ₽</p>
-                        </div>
-                        <div class="bg-emerald-900/40 sm:col-span-2 lg:col-span-1 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-emerald-700/50 shadow-md">
-                            <h4 class="text-lg font-semibold mb-2 sm:mb-4 text-emerald-200">Дети до 3 лет</h4>
-                            <p class="text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-400">БЕСПЛАТНО</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-10 flex flex-wrap items-center gap-2 sm:gap-4 justify-center text-center text-sky-400">
-                        <span>🌊</span> DAY PASS (весь день)
-                    </h3>
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                        <div class="bg-zinc-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-transparent hover:border-zinc-700 transition-all duration-300">
-                            <h4 class="text-lg font-semibold mb-4 text-white">Взрослый 14+</h4>
-                            <div class="space-y-3 text-base sm:text-lg">
-                                <div class="flex justify-between gap-4"><span class="text-zinc-400">Пн–Пт</span><span class="font-bold">3 500 ₽</span></div>
-                                <div class="flex justify-between gap-4"><span class="text-zinc-400">Сб–Вс / Праздники</span><span class="font-bold">4 800 ₽</span></div>
-                            </div>
-                        </div>
-                        <div class="bg-zinc-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-transparent hover:border-zinc-700 transition-all duration-300">
-                            <h4 class="text-lg font-semibold mb-4 text-white">Детский (3-14 лет)</h4>
-                            <div class="space-y-3 text-base sm:text-lg">
-                                <div class="flex justify-between gap-4"><span class="text-zinc-400">Пн–Пт</span><span class="font-bold">2 000 ₽</span></div>
-                                <div class="flex justify-between gap-4"><span class="text-zinc-400">Сб–Вс / Праздники</span><span class="font-bold">3 000 ₽</span></div>
-                            </div>
-                        </div>
-                        <div class="bg-emerald-900/40 sm:col-span-2 lg:col-span-1 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-emerald-700/50 flex flex-col justify-center shadow-md">
-                            <h4 class="text-lg font-semibold mb-2 text-emerald-200">Дети до 3 лет</h4>
-                            <p class="text-3xl sm:text-4xl font-bold text-emerald-400">БЕСПЛАТНО</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 text-center text-purple-400">
-                         👨‍👩‍👧‍👦 СЕМЕЙНЫЕ ТАРИФЫ (2 часа)
-                    </h3>
-                    <div class="bg-zinc-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 max-w-4xl mx-auto border border-zinc-700/30 shadow-xl">
-                        <div class="overflow-x-auto custom-scrollbar">
-                            <table class="w-full text-left border-collapse min-w-[560px]">
-                                <thead>
-                                    <tr class="border-b border-zinc-700 text-zinc-400 text-sm sm:text-base">
-                                        <th class="pb-4 pr-4">Состав семьи</th>
-                                        <th class="pb-4 pr-4">Будни <br><span class="text-xs font-normal text-zinc-500">09:00-16:00</span></th>
-                                        <th class="pb-4 pr-4">Будни <br><span class="text-xs font-normal text-zinc-500">после 16:00</span></th>
-                                        <th class="pb-4">Сб-Вс / <br><span class="text-xs font-normal text-zinc-500">Праздники</span></th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-zinc-700/50 text-white text-base sm:text-lg">
-                                    <tr class="hover:bg-zinc-700/20 transition-colors">
-                                        <td class="py-4 pr-4 font-medium text-zinc-200">2 Взрослых + 1 Ребенок</td>
-                                        <td class="py-4 pr-4">3 500 ₽</td>
-                                        <td class="py-4 pr-4">4 700 ₽</td>
-                                        <td class="py-4">5 600 ₽</td>
-                                    </tr>
-                                    <tr class="hover:bg-zinc-700/20 transition-colors">
-                                        <td class="py-4 pr-4 font-medium text-zinc-200">2 Взрослых + 2 Ребенка</td>
-                                        <td class="py-4 pr-4">4 300 ₽</td>
-                                        <td class="py-4 pr-4">5 800 ₽</td>
-                                        <td class="py-4">6 800 ₽</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="max-w-2xl mx-auto text-center bg-zinc-950 p-5 sm:p-6 rounded-2xl border border-zinc-800/80">
-                    <p class="text-zinc-400 text-xs sm:text-sm uppercase tracking-wider mb-2 font-medium">Доплата за дополнительное время пребывания</p>
-                    <p class="text-xs sm:text-sm text-zinc-500 leading-relaxed">Взрослый: +15 мин — 250 ₽ / +30 мин — 500 ₽ <br class="hidden xs:block"> Детский: +15 мин — 200 ₽ / +30 мин — 400 ₽</p>
+                <div class="bg-emerald-950/20 rounded-xl p-2.5 border border-emerald-800/20 text-center">
+                    <p class="text-xs text-emerald-400 font-medium">Дети до 3 лет — <span class="uppercase">Бесплатно</span></p>
                 </div>
             </div>
-        </div>
-    </section>
 
+            <div class="bg-zinc-850/60 p-5 sm:p-6 rounded-3xl border border-zinc-800/80 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 flex items-center gap-2 text-amber-400 justify-center sm:justify-start">
+                        <span>🌙</span> БУДНИ после 16:00 (2 часа)
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                        <div class="bg-zinc-800/80 rounded-2xl p-4 border border-zinc-700/30 text-center sm:text-left">
+                            <h4 class="text-[10px] text-zinc-400 uppercase tracking-wider mb-0.5">Взрослый</h4>
+                            <p class="text-xl sm:text-2xl font-bold text-white">2 000 ₽</p>
+                        </div>
+                        <div class="bg-zinc-800/80 rounded-2xl p-4 border border-zinc-700/30 text-center sm:text-left">
+                            <h4 class="text-[10px] text-zinc-400 uppercase tracking-wider mb-0.5">Детский (3-14)</h4>
+                            <p class="text-xl sm:text-2xl font-bold text-white">1 200 ₽</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-emerald-950/20 rounded-xl p-2.5 border border-emerald-800/20 text-center">
+                    <p class="text-xs text-emerald-400 font-medium">Дети до 3 лет — <span class="uppercase">Бесплатно</span></p>
+                </div>
+            </div>
+
+            <div class="bg-zinc-850/60 p-5 sm:p-6 rounded-3xl border border-zinc-800/80 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 flex items-center gap-2 text-red-400 justify-center sm:justify-start">
+                        <span>🎉</span> ВЫХОДНЫЕ И ПРАЗДНИКИ (2 часа)
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                        <div class="bg-zinc-800/80 rounded-2xl p-4 border border-zinc-700/30 text-center sm:text-left">
+                            <h4 class="text-[10px] text-zinc-400 uppercase tracking-wider mb-0.5">Взрослый</h4>
+                            <p class="text-xl sm:text-2xl font-bold text-white">2 400 ₽</p>
+                        </div>
+                        <div class="bg-zinc-800/80 rounded-2xl p-4 border border-zinc-700/30 text-center sm:text-left">
+                            <h4 class="text-[10px] text-zinc-400 uppercase tracking-wider mb-0.5">Детский (3-14)</h4>
+                            <p class="text-xl sm:text-2xl font-bold text-white">1 400 ₽</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-emerald-950/20 rounded-xl p-2.5 border border-emerald-800/20 text-center">
+                    <p class="text-xs text-emerald-400 font-medium">Дети до 3 лет — <span class="uppercase">Бесплатно</span></p>
+                </div>
+            </div>
+
+            <div class="bg-zinc-850/60 p-5 sm:p-6 rounded-3xl border border-zinc-800/80 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 flex items-center gap-2 text-sky-400 justify-center sm:justify-start">
+                        <span>🌊</span> DAY PASS (весь день)
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                        <div class="bg-zinc-800/80 rounded-2xl p-3.5 border border-zinc-700/30">
+                            <h4 class="text-xs font-semibold mb-2 text-white border-b border-zinc-700/50 pb-0.5 text-center sm:text-left">Взрослый 14+</h4>
+                            <div class="space-y-0.5 text-xs">
+                                <div class="flex justify-between"><span class="text-zinc-400">Пн–Пт</span><span class="font-bold text-white">3 500 ₽</span></div>
+                                <div class="flex justify-between"><span class="text-zinc-400">Сб–Вс</span><span class="font-bold text-white">4 800 ₽</span></div>
+                            </div>
+                        </div>
+                        <div class="bg-zinc-800/80 rounded-2xl p-3.5 border border-zinc-700/30">
+                            <h4 class="text-xs font-semibold mb-2 text-white border-b border-zinc-700/50 pb-0.5 text-center sm:text-left">Детский (3-14)</h4>
+                            <div class="space-y-0.5 text-xs">
+                                <div class="flex justify-between"><span class="text-zinc-400">Пн–Пт</span><span class="font-bold text-white">2 000 ₽</span></div>
+                                <div class="flex justify-between"><span class="text-zinc-400">Сб–Вс</span><span class="font-bold text-white">3 000 ₽</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-emerald-950/20 rounded-xl p-2.5 border border-emerald-800/20 text-center">
+                    <p class="text-xs text-emerald-400 font-medium">Дети до 3 лет — <span class="uppercase">Бесплатно</span></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+            <h3 class="text-xl sm:text-2xl font-semibold mb-6 text-center text-purple-400 flex items-center justify-center gap-2">
+                <span>👨‍👩‍👧‍👦</span> СЕМЕЙНЫЕ ТАРИФЫ (2 часа)
+            </h3>
+            <div class="bg-zinc-850/60 rounded-3xl p-4 sm:p-6 border border-zinc-800/80 shadow-xl mb-8">
+                <div class="overflow-x-auto custom-scrollbar">
+                    <table class="w-full text-left border-collapse min-w-[500px]">
+                        <thead>
+                            <tr class="border-b border-zinc-700 text-zinc-400 text-xs uppercase tracking-wider">
+                                <th class="pb-3 pr-4">Состав семьи</th>
+                                <th class="pb-3 pr-4">Будни <br><span class="text-[10px] font-normal text-zinc-500">09:00-16:00</span></th>
+                                <th class="pb-3 pr-4">Будни <br><span class="text-[10px] font-normal text-zinc-500">после 16:00</span></th>
+                                <th class="pb-3">Сб-Вс / Праздники</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-zinc-700/40 text-white text-sm">
+                            <tr class="hover:bg-zinc-800/30 transition-colors">
+                                <td class="py-3 pr-4 font-medium text-zinc-300">2 Взрослых + 1 Ребенок</td>
+                                <td class="py-3 pr-4 font-semibold text-emerald-400">3 500 ₽</td>
+                                <td class="py-3 pr-4 font-semibold">4 700 ₽</td>
+                                <td class="py-3 font-semibold">5 600 ₽</td>
+                            </tr>
+                            <tr class="hover:bg-zinc-800/30 transition-colors">
+                                <td class="py-3 pr-4 font-medium text-zinc-300">2 Взрослых + 2 Ребенка</td>
+                                <td class="py-3 pr-4 font-semibold text-emerald-400">4 300 ₽</td>
+                                <td class="py-3 pr-4 font-semibold">5 800 ₽</td>
+                                <td class="py-3 font-semibold">6 800 ₽</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="text-center bg-zinc-950 p-4 rounded-2xl border border-zinc-900">
+                <p class="text-zinc-400 text-[11px] uppercase tracking-wider mb-1 font-medium">Доплата за дополнительное время</p>
+                <p class="text-xs text-zinc-500">
+                    Взрослый: +15 мин — 250 ₽ / +30 мин — 500 ₽ &nbsp;&bull;&nbsp; Детский: +15 мин — 200 ₽ / +30 мин — 400 ₽
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
     <section id="calculator" class="py-16 sm:py-24 bg-zinc-950 border-t border-zinc-900">
         <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center logo-font mb-4">Калькулятор стоимости</h2>
@@ -312,90 +337,126 @@
         </div>
     </section>
 
-    <div id="menu-overlay" class="fixed inset-0 bg-zinc-950 z-[100] pointer-events-none opacity-0 translate-y-10 flex flex-col">
-        <div class="bg-zinc-900 border-b border-zinc-800 p-4 sm:p-6 flex justify-between items-center shrink-0">
-            <div class="flex items-center gap-3">
-                <span class="text-xl sm:text-2xl">📖</span>
-                <h3 class="text-xl sm:text-2xl font-bold logo-font text-white">Меню Акватори</h3>
-            </div>
-            <button onclick="toggleMenu(false)" class="w-10 h-10 sm:w-12 sm:h-12 bg-zinc-800 text-zinc-400 hover:text-white rounded-xl flex items-center justify-center font-bold text-xl sm:text-2xl transition-all active:scale-90 shadow-md">
-                <i class="fas fa-times"></i>
+   <div id="menu-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 pointer-events-none opacity-0 translate-y-10 transition-all duration-300 overflow-y-auto custom-scrollbar">
+    <div class="min-h-screen py-12 px-4 sm:px-6 flex items-center justify-center">
+        <div class="bg-zinc-900 border border-zinc-800 w-full max-w-5xl rounded-3xl p-6 sm:p-10 relative shadow-2xl text-white">
+            
+            <button onclick="toggleMenu(false)" class="absolute top-6 right-6 text-zinc-400 hover:text-white transition-colors bg-zinc-800 hover:bg-zinc-700 p-2 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
             </button>
-        </div>
 
-        <div class="flex-1 overflow-y-auto custom-scrollbar p-4 sm:p-8 md:p-12 max-w-5xl mx-auto w-full">
-            <div class="grid md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-12 pb-16">
-                <div class="space-y-12">
-                    <div>
-                        <h3 class="text-xl sm:text-2xl font-semibold mb-4 flex items-center gap-3 border-b border-zinc-800 pb-2 text-white">🍕 Пицца</h3>
-                        <div class="space-y-4 text-sm sm:text-base">
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Пицца «Пепперони»</span><span class="text-white font-medium shrink-0">600 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Пицца «Маргарита»</span><span class="text-white font-medium shrink-0">550 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Пицца «Цезарь»</span><span class="text-white font-medium shrink-0">650 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Пицца «Ветчина и грибы»</span><span class="text-white font-medium shrink-0">650 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Пицца «4 сыра»</span><span class="text-white font-medium shrink-0">650 ₽</span></div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-xl sm:text-2xl font-semibold mb-4 flex items-center gap-3 border-b border-zinc-800 pb-2 text-white">🍔 Бургеры и Фри</h3>
-                        <div class="space-y-4 text-sm sm:text-base">
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Бургер с курицей</span><span class="text-white font-medium shrink-0">550 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Бургер с говядиной</span><span class="text-white font-medium shrink-0">600 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Картофель фри</span><span class="text-white font-medium shrink-0">200 ₽</span></div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-xl sm:text-2xl font-semibold mb-4 flex items-center gap-3 border-b border-zinc-800 pb-2 text-white">🥣 Супы</h3>
-                        <div class="space-y-4 text-sm sm:text-base">
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Рамен с говядиной (острый)</span><span class="text-white font-medium shrink-0">500 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Рамен с курицей, сыром и яйцом</span><span class="text-white font-medium shrink-0">500 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Том Ям</span><span class="text-white font-medium shrink-0">700 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Финский суп с семгой</span><span class="text-white font-medium shrink-0">550 ₽</span></div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-xl sm:text-2xl font-semibold mb-4 flex items-center gap-3 border-b border-zinc-800 pb-2 text-white">🥫 Соусы</h3>
-                        <div class="space-y-4 text-sm sm:text-base">
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Кетчуп</span><span class="text-white font-medium shrink-0">50 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Сырный соус</span><span class="text-white font-medium shrink-0">50 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Спайси соус</span><span class="text-white font-medium shrink-0">50 ₽</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="space-y-12">
-                    <div>
-                        <h3 class="text-xl sm:text-2xl font-semibold mb-4 flex items-center gap-3 border-b border-zinc-800 pb-2 text-white">🍲 Горячее</h3>
-                        <div class="space-y-4 text-sm sm:text-base">
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Запеченный ягненок с картофелем бэби</span><span class="text-white font-medium shrink-0 text-right">750 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Теппан с курицей</span><span class="text-white font-medium shrink-0">600 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Теппан с креветками</span><span class="text-white font-medium shrink-0">650 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Феттучине с семгой</span><span class="text-white font-medium shrink-0">600 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Семга на рисовой подушке со шпинатом</span><span class="text-white font-medium shrink-0 text-right">750 ₽</span></div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-xl sm:text-2xl font-semibold mb-4 flex items-center gap-3 border-b border-zinc-800 pb-2 text-white">🥟 Закуски</h3>
-                        <div class="space-y-4 text-sm sm:text-base">
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Хрустящие баклажаны с сыром</span><span class="text-white font-medium shrink-0 text-right">650 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Креветки темпура (5 шт)</span><span class="text-white font-medium shrink-0">500 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Мидии в сливочном соусе</span><span class="text-white font-medium shrink-0">750 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Сашими из креветки</span><span class="text-white font-medium shrink-0">600 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Сашими из угря</span><span class="text-white font-medium shrink-0">600 ₽</span></div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-xl sm:text-2xl font-semibold mb-4 flex items-center gap-3 border-b border-zinc-800 pb-2 text-white">🍣 Роллы и Суши</h3>
-                        <div class="space-y-4 text-sm sm:text-base">
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Запеченный ролл «Акватори»</span><span class="text-white font-medium shrink-0 text-right">750 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Ролл темпура «Акватори»</span><span class="text-white font-medium shrink-0 text-right">700 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Калифорния со снежным крабом</span><span class="text-white font-medium shrink-0 text-right">600 ₽</span></div>
-                            <div class="menu-item flex justify-between gap-4 pb-1"><span class="text-zinc-300">Ролл «Канада»</span><span class="text-white font-medium shrink-0">650 ₽</span></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center mb-12">
+                <div class="text-2xl font-bold tracking-widest uppercase text-zinc-300 logo-font mb-1">AKBATOPИ</div>
+                <div class="text-xs uppercase tracking-widest text-zinc-500">Термальный SPA-комплекс &bull; Меню кафе</div>
+                <div class="w-24 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent mx-auto mt-4"></div>
             </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+                
+                <div class="space-y-10">
+                    
+                    <div>
+                        <h3 class="text-base font-bold text-zinc-400 border-b border-zinc-800 pb-2 mb-4 uppercase tracking-wide">Пицца</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Пицца «Пепперони»</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">600 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Пицца «Маргарита»</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">550 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Пицца «Цезарь»</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">650 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Пицца «Ветчина и грибы»</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">650 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Пицца «4 сыра»</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">650 ₽</span></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-base font-bold text-zinc-400 border-b border-zinc-800 pb-2 mb-4 uppercase tracking-wide">Бургеры и Фри</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Бургер с курицей</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">550 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Бургер с говядиной</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">600 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Картофель фри</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">200 ₽</span></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-base font-bold text-zinc-400 border-b border-zinc-800 pb-2 mb-4 uppercase tracking-wide">Горячее</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Запеченный ягненок с картофелем бейби</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">750 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Теппан с курицей</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">600 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Теппан с креветками</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">650 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Феттучине с семгой</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">600 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Семга на рисовой подушке со шпинатом</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">750 ₽</span></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-base font-bold text-zinc-400 border-b border-zinc-800 pb-2 mb-4 uppercase tracking-wide">Соусы</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Кетчуп</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">50 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Сырный соус</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">50 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Спайси соус</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">50 ₽</span></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="space-y-10">
+                    
+                    <div>
+                        <h3 class="text-base font-bold text-zinc-400 border-b border-zinc-800 pb-2 mb-4 uppercase tracking-wide">Супы</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Рамен с говядиной (острый)</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">500 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Рамен с курицей, сыром и яйцом</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">500 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Том Ям</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">700 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Финский суп с семгой</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">550 ₽</span></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-base font-bold text-zinc-400 border-b border-zinc-800 pb-2 mb-4 uppercase tracking-wide">Закуски</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Хрустящие баклажаны с сыром</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">650 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Креветки темпура (5 шт.)</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">500 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Мидии в сливочном соусе</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">750 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Сашими из креветки</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">600 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Сашими из угря</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">600 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Сашими из лосося</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">600 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Сашими из тунца</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">600 ₽</span></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-base font-bold text-zinc-400 border-b border-zinc-800 pb-2 mb-4 uppercase tracking-wide">Салаты</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Фунчоза с угрем</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">650 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Тайский салат с говядиной</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">650 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Тайский салат с креветками</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">700 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Чука салат</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">350 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Нисуаз</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">700 ₽</span></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-base font-bold text-zinc-400 border-b border-zinc-800 pb-2 mb-4 uppercase tracking-wide">Роллы \ Суши</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Запеченный ролл «АкваТори»</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">750 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Ролл темпура «АкваТори»</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">700 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Калифорния со снежным крабом</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">600 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Калифорния с креветкой</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">650 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Хрустящий ролл с креветкой</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">600 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Ролл «Канада»</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">650 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-300">Ролл «Гейша»</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">850 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-400 text-xs">Суши с креветкой / угрем / тунцом / лососем (1 шт.)</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">150 ₽</span></div>
+                            <div class="flex justify-between items-baseline gap-2"><span class="text-zinc-400 text-xs">Гункан с креветкой / угрем / тунцом / лососем (1 шт.)</span><div class="flex-1 border-b border-dashed border-zinc-800 mx-1"></div><span class="font-semibold whitespace-nowrap">200 ₽</span></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            
         </div>
     </div>
+</div>
 
     <section id="contacts" class="py-16 sm:py-24 bg-zinc-950 border-t border-zinc-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -576,5 +637,161 @@
 
         calculateCost();
     </script>
+    <script>
+    // =========================================================================
+    // 1. ЛОГИКА СЛАЙДЕРА И ОТКРЫТИЯ МЕНЮ
+    // =========================================================================
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    let slideInterval = setInterval(nextSlide, 5000);
+
+    function showSlide(index) {
+        slides.forEach(slide => {
+            slide.classList.remove('opacity-100');
+            slide.classList.add('opacity-0');
+        });
+        slides[index].classList.remove('opacity-0');
+        slides[index].classList.add('opacity-100');
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+        resetSliderTimer();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+        resetSliderTimer();
+    }
+
+    function resetSliderTimer() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    // Управление модальным окном (оверлеем) меню кафе
+    function toggleMenu(show) {
+        const overlay = document.getElementById('menu-overlay');
+        if (show) {
+            overlay.classList.remove('pointer-events-none', 'opacity-0', 'translate-y-10');
+            overlay.classList.add('pointer-events-auto', 'opacity-100', 'translate-y-0');
+            document.body.style.overflow = 'hidden'; // Блокируем скролл фона
+        } else {
+            overlay.classList.remove('pointer-events-auto', 'opacity-100', 'translate-y-0');
+            overlay.classList.add('pointer-events-none', 'opacity-0', 'translate-y-10');
+            document.body.style.overflow = ''; // Возвращаем скролл
+        }
+    }
+
+    // =========================================================================
+    // 2. ДИНАМИЧЕСКИЙ КАЛЬКУЛЯТОР ТАРИФОВ
+    // =========================================================================
+    
+    // Получаем DOM-элементы калькулятора
+    const calcDay = document.getElementById('calc-day');
+    const calcTime = document.getElementById('calc-time');
+    const calcAdults = document.getElementById('calc-adults');
+    const calcKids = document.getElementById('calc-kids');
+    const calcBabies = document.getElementById('calc-babies');
+    const calcTarifName = document.getElementById('calc-tarif-name');
+    const calcTotal = document.getElementById('calc-total');
+
+    // Функция изменения количества кнопками +/-
+    function changeQty(type, val) {
+        let input;
+        if (type === 'adults') input = calcAdults;
+        if (type === 'kids') input = calcKids;
+        if (type === 'babies') input = calcBabies;
+
+        if (input) {
+            let currentVal = parseInt(input.value) || 0;
+            let newVal = currentVal + val;
+            if (newVal < 0) newVal = 0;
+            input.value = newVal;
+            calculatePrice(); // Пересчитываем сразу при клике
+        }
+    }
+
+    // Главная функция расчета стоимости
+    function calculatePrice() {
+        const day = calcDay.value;       // 'weekday' или 'weekend'
+        const time = calcTime.value;     // 'before16', 'after16', 'daypass'
+        
+        const adults = parseInt(calcAdults.value) || 0;
+        const kids = parseInt(calcKids.value) || 0;
+        const babies = parseInt(calcBabies.value) || 0;
+
+        let totalPrice = 0;
+        let tariffLabel = "Обычный расчет";
+
+        // Проверяем условия для СЕМЕЙНЫХ ТАРИФОВ (только на 2 часа: 'before16' или 'after16')
+        if (time !== 'daypass' && adults === 2 && (kids === 1 || kids === 2)) {
+            if (day === 'weekday') {
+                if (time === 'before16') {
+                    totalPrice = (kids === 1) ? 3500 : 4300;
+                    tariffLabel = `Семейный тариф (Будни до 16:00, 2 часа)`;
+                } else { // после 16:00
+                    totalPrice = (kids === 1) ? 4700 : 5800;
+                    tariffLabel = `Семейный тариф (Будни после 16:00, 2 часа)`;
+                }
+            } else { // weekend
+                totalPrice = (kids === 1) ? 5600 : 6800;
+                tariffLabel = `Семейный тариф (Выходные и Праздники, 2 часа)`;
+            }
+        } 
+        // СТАНДАРТНЫЙ ПОЧАСОВОЙ ИЛИ DAY PASS РАСЧЕТ
+        else {
+            let adultPrice = 0;
+            let kidPrice = 0;
+
+            if (day === 'weekday') {
+                if (time === 'before16') {
+                    adultPrice = 1500;
+                    kidPrice = 900;
+                    tariffLabel = "Будни до 16:00 (2 часа)";
+                } else if (time === 'after16') {
+                    adultPrice = 2000;
+                    kidPrice = 1200;
+                    tariffLabel = "Будни после 16:00 (2 часа)";
+                } else if (time === 'daypass') {
+                    adultPrice = 3500;
+                    kidPrice = 2000;
+                    tariffLabel = "DAY PASS (Весь день, Будни)";
+                }
+            } else { // weekend
+                if (time === 'daypass') {
+                    adultPrice = 4800;
+                    kidPrice = 3000;
+                    tariffLabel = "DAY PASS (Весь день, Выходные/Праздники)";
+                } else {
+                    // В выходные дни у тарифа на 2 часа нет деления до/после 16:00
+                    adultPrice = 2400;
+                    kidPrice = 1400;
+                    tariffLabel = "Выходные и Праздники (2 часа)";
+                }
+            }
+
+            totalPrice = (adults * adultPrice) + (kids * kidPrice);
+        }
+
+        // Выводим результат в интерфейс с форматированием пробела для тысяч
+        calcTarifName.textContent = tariffLabel;
+        calcTotal.textContent = totalPrice.toLocaleString('ru-RU') + " ₽";
+    }
+
+    // Навешиваем обработчики событий на все селекты и инпуты для мгновенного обновления
+    [calcDay, calcTime].forEach(element => {
+        element.addEventListener('change', calculatePrice);
+    });
+
+    [calcAdults, calcKids, calcBabies].forEach(element => {
+        element.addEventListener('input', calculatePrice);
+    });
+
+    // Запускаем первичный расчет при загрузке страницы
+    document.addEventListener('DOMContentLoaded', calculatePrice);
+</script>
 </body>
 </html>
